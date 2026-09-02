@@ -229,7 +229,7 @@ void loop() {
   }
 
 
-  // Solo actualizamos el WS2812 si algo cambió
+  // Solo actualizamos el LED WS2812 si algo cambió
   if (changed) {
     updateRGB();
   }
