@@ -1,10 +1,16 @@
 # Morse-vBand
 
+[![Platform](https://img.shields.io/badge/platform-Seeed_XIAO_RP2040-00b388)](https://wiki.seeedstudio.com/XIAO-RP2040/)
+[![Framework](https://img.shields.io/badge/framework-Arduino-00979D?logo=arduino&logoColor=white)](https://www.arduino.cc/)
+[![Interface](https://img.shields.io/badge/interface-USB_HID-4c8bf5)](#usb-hid-output)
+[![Morse-vBand-LAN](https://img.shields.io/badge/compatible-Morse--vBand--LAN-55e06f)](https://github.com/frrojas92/Morse-vBand-LAN)
+[![Last commit](https://img.shields.io/github/last-commit/frrojas92/Morse-vBand?logo=github)](https://github.com/frrojas92/Morse-vBand/commits/main)
+
 **USB HID interface for Morse code training using a physical paddle and a Seeed Studio XIAO RP2040.**
 
 Morse-vBand is conceived as a **Simple Morse code / CW training interface**, allowing a real dual-lever paddle to be used with web and Android training applications.
 
-The project converts a dual-lever Morse paddle into a standard USB HID keyboard interface for **vBand** and compatible Android apps, providing a simple and portable way to practice CW with real paddle hardware.
+The project converts a dual-lever Morse paddle into a standard USB HID keyboard interface for **vBand**, **Morse-vBand-LAN**, and compatible Android apps, providing a simple and portable way to practice CW with real paddle hardware.
 
 The XIAO reads the paddle contacts and sends:
 
@@ -26,6 +32,7 @@ The **WPM, keyer mode and Morse timing are handled by the training application**
 - USB HID keyboard — no special driver required
 - Dual-paddle input with debounce
 - Compatible with **vBand**
+- Compatible with **Morse-vBand-LAN** for multi-operator CW practice on a local network
 - Compatible with Android via USB OTG
 - On-board RGB status LED
 - WPM controlled by the training application
@@ -33,10 +40,16 @@ The **WPM, keyer mode and Morse timing are handled by the training application**
 
 ## Compatible software
 
+- **Morse-vBand-LAN** — offline-first, multi-operator CW training over a trusted local network. The application recognizes the firmware's `Left Ctrl` DIT and `Right Ctrl` DAH output without additional drivers or firmware changes. WPM, keyer mode, sidetone, rooms, decoding, and instructor controls are handled by the web application.
+
+  [Morse-vBand-LAN on GitHub](https://github.com/frrojas92/Morse-vBand-LAN)
+
 - **vBand** — web-based CW keyer and training platform
+
   [vBand](https://hamradio.solutions/vband/)
-  
-- **Morse Training: Learn Morse** for Android — supports physical paddles through USB keyboard adapters  
+
+- **Morse Training: Learn Morse** for Android — supports physical paddles through USB keyboard adapters
+
   [Google Play](https://play.google.com/store/apps/details?id=com.qft8.morsekeyer)
 
 ## RGB status
@@ -133,7 +146,7 @@ arduino-cli upload \
   .
 ```
 
-## Usage
+## USB HID output
 
 Morse-vBand is intended to provide a more realistic CW training experience by allowing the operator to practice with the same type of physical paddle used in amateur radio operation.
 
@@ -163,6 +176,16 @@ Right paddle → DAH → Right Ctrl
 ```
 
 No WPM value is stored in the XIAO.
+
+### Morse-vBand-LAN
+
+1. Connect the Morse-vBand device to the computer or compatible mobile device.
+2. Open the student interface provided by a running Morse-vBand-LAN server.
+3. Enter a callsign and join a channel.
+4. Select the keyer mode unless the instructor has enforced one.
+5. Use the paddle normally. The application handles CW timing and generates the sidetone locally.
+
+See the [Morse-vBand-LAN documentation](https://github.com/frrojas92/Morse-vBand-LAN#readme) for server and Docker setup.
 
 ## Acknowledgements
 
